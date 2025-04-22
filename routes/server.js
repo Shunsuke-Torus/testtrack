@@ -6,12 +6,7 @@ router.get("/", (req, res) => {
   res.send({ message: "サーバー動いてるよ"});
 });
 
-router.get('/hoge', function(req, res) {
-  res.send({ message: "サーバー動いてるよ"});
-});
-
-/* GET home page. */
-router.get('/signup', function(req, res, next) {
+router.get('/index', function(req, res) {
   res.render('index', { title: 'Express' });
 });
 

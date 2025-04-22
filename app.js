@@ -1,4 +1,3 @@
-var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -25,7 +24,9 @@ app.use('/server', serverRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  const err = new Error("Not Found");
+  err.status = 404;
+  next(err);
 });
 
 // error handler
