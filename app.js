@@ -7,6 +7,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var serverRouter = require('./routes/server');
 
+require('dotenv').config();
+
 var app = express();
 
 // view engine setup
@@ -40,8 +42,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(8000, () => {
-  console.log("running...");
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log("running on port ${PORT}....");
 });
 
 module.exports = app;
